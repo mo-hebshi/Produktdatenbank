@@ -43,7 +43,7 @@ public class ProductController {
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
         try {
             Product savedProduct = productRepository.save(product);
-            return ResponseEntity.ok(savedProduct);
+            return ResponseEntity.ok(new Product(savedProduct.getId(), savedProduct.getName(), savedProduct.getDescription(), savedProduct.getPrice()));
         } catch (Exception e) {
             // Handle the exception and return an appropriate response
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -85,6 +85,8 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 }
+
+
 
 
 

@@ -3,7 +3,7 @@ package com.NgomaHebshi.Produktdatenbank.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id; // Import the Id annotation
+import jakarta.persistence.Id;
 
 @Entity
 public class Product {
@@ -16,6 +16,22 @@ public class Product {
     private String description;
     private double price;
 
+    // Default constructor for JPA
+    public Product() {
+    }
+
+    // Constructor with parameters, including the ID
+    public Product(Long id, String name, String description, double price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -25,18 +41,18 @@ public class Product {
     }
 
     public double getPrice() {
-        return price; // Corrected to return price
+        return price;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setDescription(String description) { // Corrected field name
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public void setPrice(double price) { // Corrected field name and data type
+    public void setPrice(double price) {
         this.price = price;
     }
 }
