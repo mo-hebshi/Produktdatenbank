@@ -15,8 +15,11 @@ DELETE /api/products/deleteProductById/{productId}: Löschen Sie ein bestimmtes 
 
 ## Abhängigkeiten
 
-- **Spring Boot:** 3.2.1
-- **Spring Data JPA:** Für die Datenbankinteraktion.
-- **Spring Web:** Für die RESTful-Endpunkte.
-- **H2 Database:** Als eingebettete Datenbank.
-- **Hibernate:** ORM für die Datenbankintegration.
+- **Spring Boot (Version 3.2.1):** Framework für die Entwicklung von Java-Anwendungen.
+- **Spring Data JPA:** Unterstützt die Implementierung von JPA-basierten Repositories.
+- **Spring Web:** Ermöglicht die Entwicklung von Webanwendungen.
+- **H2 Database:** Leichtgewichtige, in-Memory Datenbank für Entwicklung und Test.
+- **Hibernate:** JPA (Java Persistence API) Implementierung für die Datenbankinteraktion.
+- **JUnit:** Framework für das Schreiben und Ausführen von Tests.
+- **Jakarta Persistence API (Version 2.2):** Java Persistence API für die objektrelationale Abbildung.
+
