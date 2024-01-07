@@ -1,5 +1,5 @@
-# Produktdatenbank
-Dies ist eine einfache RESTful-API-Anwendung zur Verwaltung von Produktinformationen. Sie ermöglicht grundlegende CRUD-Operationen (Erstellen, Lesen, Aktualisieren, Löschen) für Produkte. Die Anwendung wurde mit Spring Boot erstellt und nutzt Spring Data JPA für die Datenpersistenz mit einer H2-In-Memory-Datenbank.
+# Gruppe 8: Produktdatenbank Mohammed Al-Hebshi, Aschley Njiondop Ngoma
+Dies ist eine RESTful-API-Anwendung zur Verwaltung von Produktinformationen. Sie ermöglicht grundlegende CRUD-Operationen (Erstellen, Lesen, Aktualisieren, Löschen) für Produkte. Die Anwendung wurde mit Spring Boot erstellt und nutzt Spring Data JPA für die Datenpersistenz mit einer H2-In-Memory-Datenbank.
 
 # API-Endpunkte
 GET /api/products/getAllProducts: Erhalten Sie eine Liste aller Produkte.
