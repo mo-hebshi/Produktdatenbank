@@ -9,5 +9,14 @@ PUT /api/products/updateProductById/{productId}: Aktualisieren Sie Details zu ei
 DELETE /api/products/deleteProductById/{productId}: Löschen Sie ein bestimmtes Produkt anhand der ID.
 
 # Fehlerbehandlung
-Die Anwendung behandelt Fehler auf elegante Weise und gibt im Falle eines nicht gefundenen Produkts eine 404-Antwort mit einer entsprechenden Nachricht zurück.
+404 Not Found: Wird zurückgegeben, wenn ein Produkt mit der angegebenen ID nicht gefunden wurde.
+500 Internal Server Error: Wird zurückgegeben, wenn ein interner Serverfehler auftritt.
+400 Bad Request: Wird zurückgegeben, wenn die Anfrage nicht verarbeitet werden kann.
 
+## Abhängigkeiten
+
+- **Spring Boot:** 3.2.1
+- **Spring Data JPA:** Für die Datenbankinteraktion.
+- **Spring Web:** Für die RESTful-Endpunkte.
+- **H2 Database:** Als eingebettete Datenbank.
+- **Hibernate:** ORM für die Datenbankintegration.
