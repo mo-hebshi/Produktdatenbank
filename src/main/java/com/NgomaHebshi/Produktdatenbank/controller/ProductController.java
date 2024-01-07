@@ -17,7 +17,7 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @GetMapping("/getAllProducts")
+   @GetMapping("/getAllProducts")
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = (List<Product>) productRepository.findAll();
 
@@ -29,7 +29,7 @@ public class ProductController {
     }
 
     @GetMapping("/getProductById/{productId}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long productId) {
+    public ResponseEntity<Product> getProductById(@PathVariable(name = "productId") Long productId) {
         try {
             Product product = productRepository.findById(productId)
                     .orElseThrow(() -> new ProductNotFoundException("Product not found with id: " + productId));
@@ -43,15 +43,14 @@ public class ProductController {
     public ResponseEntity<Product> addProduct(@RequestBody Product product) {
         try {
             Product savedProduct = productRepository.save(product);
-            return ResponseEntity.ok(new Product(savedProduct.getId(), savedProduct.getName(), savedProduct.getDescription(), savedProduct.getPrice()));
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
         } catch (Exception e) {
-            // Handle the exception and return an appropriate response
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
     @PutMapping("/updateProductById/{productId}")
-    public ResponseEntity<Product> updateProduct(@PathVariable Long productId, @RequestBody Product updatedProduct) {
+    public ResponseEntity<Product> updateProduct(@PathVariable(name = "productId") Long productId, @RequestBody Product updatedProduct) {
         try {
             Product existingProduct = productRepository.findById(productId)
                     .orElseThrow(() -> new ProductNotFoundException("Product not found with id: " + productId));
@@ -68,7 +67,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/deleteProductById/{productId}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long productId) {
+    public ResponseEntity<Void> deleteProduct(@PathVariable(name = "productId") Long productId) {
         try {
             productRepository.findById(productId)
                     .orElseThrow(() -> new ProductNotFoundException("Product not found with id: " + productId));
@@ -85,7 +84,6 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 }
-
 
 
 
